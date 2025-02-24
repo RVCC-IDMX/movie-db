@@ -1,10 +1,8 @@
 # JS Unit Testing with Vitest with Coverage and UI
 
-## JS Unit Testing Objects
+## JS Unit Testing Objects Using A Movie Database
 
 [![tested with vitest](https://img.shields.io/badge/tested_with-vitest-99424f.svg)](https://vitest.dev/)
-
-*NOTE: There is a browser-based UI for this project. See the [Vitest UI]*
 
 
 This project is written in [Node](https://nodejs.org/en/), and tested with [Vitest - Blazing Fast Unit Test Framework](https://vitestjs.io/).
@@ -13,7 +11,7 @@ This project is written in [Node](https://nodejs.org/en/), and tested with [Vite
 
 ## The Assignment
 
-When npm runs vitest, all the tests are failing as seen at the end of its output to the console.
+When npm runs vitest, some tests are failing as seen at the end of its output to the console.
 
 
 # Instructions
@@ -30,7 +28,7 @@ Start with the first file.
 
 `npm run test:1`
 
-For a quick `src/movie-creation.js` already has suggested solutions that pass.
+For a quick start to this project `src/movie-creation.js` already has suggested solutions that pass.
 
 **NOTE:** As you are editing, don't forget to save the file before you try running the test or it won't be able to see the changes.
 
