@@ -1,0 +1,21 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "node_modules"
+    ],
+    "includePattern": ".*\\.js$",
+    "excludePattern": "(node_modules|docs)"
+  },
+  "opts": {
+    "destination": "docs",
+    "encoding": "utf8",
+    "recurse": true,
+    "template": "node_modules/jsdoc/templates/default"
+  }
+}

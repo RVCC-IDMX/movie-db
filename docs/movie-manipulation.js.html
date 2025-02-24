@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: movie-manipulation.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: movie-manipulation.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file movie-manipulation.js
+ * @fileoverview Demonstrates movie object property manipulation.
+ * Provides functions for updating the movie rating, updating the movie genre (with allowed genres validation),
+ * removing the director property, and adding a new cast member.
+ * @module movie-manipulation
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
+ */
+
+// Toggle examples on or off.
+const SHOW_EXAMPLES = false;
+
+const allowedGenres = ["Animation", "Family", "Action", "Comedy", "Drama", "Sci-Fi"];
+
+/**
+ * Updates the movie rating if the provided input is valid.
+ * @param {object} movie - The movie object. Expected to be a non-null object.
+ * @param {number} rating - The new rating value. Expected to be a number.
+ * @returns {object} - The updated movie object.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment
+ */
+export function setMovieRating(movie, rating) {
+  if (typeof movie !== "object" || movie === null || typeof rating !== "number") {
+    console.log("setMovieRating: Expected a non-null movie object and a numeric rating value.");
+    return movie;
+  }
+  // Using dot notation to update the rating.
+  movie.rating = rating;
+  return movie;
+}
+
+/**
+ * Updates the movie genre only if the new genre is in the allowed list.
+ * @param {object} movie - The movie object. Expected to be a non-null object.
+ * @param {string} genre - The new genre to set. Expected to be a string.
+ * @returns {object} - The updated movie object.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment
+ */
+export function addMovieGenre(movie, genre) {
+  if (typeof movie !== "object" || movie === null || typeof genre !== "string") {
+    console.log("addMovieGenre: Expected a non-null movie object and a string for genre.");
+    return movie;
+  }
+  // Validate the new genre against the allowedGenres array.
+  if (!allowedGenres.includes(genre)) {
+    console.log("addMovieGenre: Genre '" + genre + "' is not allowed. Allowed genres are: " + allowedGenres.join(", "));
+    return movie;
+  }
+  movie.genre = genre;
+  return movie;
+}
+
+/**
+ * Removes the director property from the movie object.
+ * @param {object} movie - The movie object. Expected to be a non-null object.
+ * @returns {object} - The updated movie object without the director property.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
+ */
+export function removeDirectorProperty(movie) {
+  if (typeof movie !== "object" || movie === null || !movie.hasOwnProperty("director")) {
+    console.log("removeDirectorProperty: Expected a non-null movie object with a 'director' property.");
+    return movie;
+  }
+  // Using the delete operator to remove the property.
+  delete movie.director;
+  return movie;
+}
+
+/**
+ * Adds a new member to the movie's cast array.
+ * @param {object} movie - The movie object. Expected to be a non-null object with a cast array.
+ * @param {string} newMember - The new cast member to add. Expected to be a string.
+ * @returns {object} - The updated movie object.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+ */
+export function addCastMember(movie, newMember) {
+  if (typeof movie !== "object" || movie === null || !Array.isArray(movie.cast)) {
+    console.log("addCastMember: Expected a non-null movie object with a cast array.");
+    return movie;
+  }
+  if (typeof newMember !== "string") {
+    console.log("addCastMember: Expected newMember to be a string representing a cast member's name.");
+    return movie;
+  }
+  movie.cast.push(newMember);
+  return movie;
+}
+
+/**
+ * Returns a copy of the allowed genres array.
+ * This function provides controlled access to the allowed genres.
+ * @returns {Array} - An array of allowed genres.
+ */
+export function getAllowedGenres() {
+  // Return a copy so external code can't modify the private array.
+  return allowedGenres.slice();
+}
+
+// --------------------
+// Example Code Section
+// --------------------
+if (SHOW_EXAMPLES) {
+  let movie = {
+    id: 1,
+    title: "Toy Story",
+    director: "John Lasseter",
+    year: 1995,
+    genre: "Animation",
+    rating: 8.3,
+    cast: ["Tom Hanks", "Tim Allen", "Don Rickles"]
+  };
+
+  console.log("Original Movie Object:", movie);
+  // Explanation: Displays the initial state of the movie object.
+
+  movie = setMovieRating(movie, 9.1);
+  console.log("After Updating Rating:", movie);
+  // Explanation: Shows the updated movie object with the new rating.
+
+  movie = addMovieGenre(movie, "Family");
+  console.log("After Adding/Updating Genre:", movie);
+  // Explanation: Shows the movie object after updating the genre.
+
+  movie = removeDirectorProperty(movie);
+  console.log("After Removing Director Property:", movie);
+  // Explanation: Shows the movie object after removing the director property.
+
+  movie = addCastMember(movie, "Joan Cusack");
+  console.log("After Adding a New Cast Member:", movie);
+  // Explanation: Shows the movie object after adding a new cast member to the cast array.
+
+  console.log("Allowed Genres:", getAllowedGenres());
+  // Explanation: Displays the allowed genres list.
+
+  // Example of handling unexpected types:
+  let invalidMovie = null;
+  setMovieRating(invalidMovie, 8.5); // Should log an error message.
+  addMovieGenre({}, 123);            // Should log an error message.
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-movie-creation.html">movie-creation</a></li><li><a href="module-movie-manipulation.html">movie-manipulation</a></li><li><a href="module-movie-validation.html">movie-validation</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sun Feb 23 2025 21:22:39 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
