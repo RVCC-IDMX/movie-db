@@ -78,6 +78,12 @@ Running these files with Node.js will print the respective `console.log()` outpu
 
 ---
 
+## Suggested Code and Additional Resources
+
+Suggested code that passes the tests is available in the `documents` folder of this project. You can access these resources by opening the `index.html` file in your browser using Live Server.
+
+---
+
 ## Continue writing and fixing code until all tests pass
 
 When you feel the coding skills are completed, the following command will test all files in the repo that end in test.js

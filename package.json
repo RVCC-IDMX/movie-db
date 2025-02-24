@@ -9,7 +9,7 @@
     "test:2": "vitest tests/movie-manipulation.test.js --globals --run",
     "test:3": "vitest tests/movie-validation.test.js --globals --run",
     "test": "vitest run --silent --globals --coverage --coverage.exclude=docs --coverage.exclude=eslint.config.mjs ",
-    "docs": "jsdoc -c jsdoc.conf.json"
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
